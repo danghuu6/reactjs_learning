@@ -23,11 +23,13 @@
                 name: 'CSS'
             }
         ]
-        const item = (<ul>
+        const item = (
+                    <ul>
                         {cources.map((c, i) =>
                             <li key={i}>{c.name}</li>
                         )}
-                    </ul>)
+                    </ul>
+        )
 
         ReactDOM.render(item, document.getElementById('root'))
     </script>
