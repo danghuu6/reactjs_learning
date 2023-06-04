@@ -14,15 +14,80 @@
     <div id="root"></div>
     <script type="text/babel">
 
-        function PostItem(prop) {
+        // API response data
+        const data = [
+            {
+            "id": 760,
+            "title": "Sinh viên IT đi thực tập tại doanh nghiệp cần biết những gì?",
+            "slug": "sinh-vien-it-di-thuc-tap-tai-doanh-nghiep-can-biet-nhung-gi",
+            "image": "https://i.ytimg.com/vi/YH-E4Y3EaT4/maxresdefault.jpg",
+            "video": "YH-E4Y3EaT4",
+            "duration": 2091,
+            "yt_view_count": 227354,
+            "yt_comment_count": 229,
+            "yt_like_count": 5796,
+            "image_url": "https://i.ytimg.com/vi/YH-E4Y3EaT4/maxresdefault.jpg",
+            "video_url": null
+            },
+            {
+            "id": 696,
+            "title": "\"Code Thiếu Nhi Battle\" Tranh Giành Trà Sữa Size L",
+            "slug": "code-thieu-nhi-battle-tranh-gianh-tra-sua-size-l",
+            "image": "https://i.ytimg.com/vi/sgq7BH6WxL8/maxresdefault.jpg",
+            "video": "sgq7BH6WxL8",
+            "duration": 1510,
+            "yt_view_count": 267330,
+            "yt_comment_count": 183,
+            "yt_like_count": 5590,
+            "image_url": "https://i.ytimg.com/vi/sgq7BH6WxL8/maxresdefault.jpg",
+            "video_url": null
+            },
+            {
+            "id": 456,
+            "title": "Phương pháp học lập trình của Admin F8?",
+            "slug": "phuong-phap-hoc-lap-trinh-cua-admin-f8",
+            "image": "https://i.ytimg.com/vi/DpvYHLUiZpc/maxresdefault.jpg",
+            "video": "DpvYHLUiZpc",
+            "duration": 1446,
+            "yt_view_count": 111350,
+            "yt_comment_count": 330,
+            "yt_like_count": 5588,
+            "image_url": "https://i.ytimg.com/vi/DpvYHLUiZpc/maxresdefault.jpg",
+            "video_url": null
+            },
+            {
+            "id": 44,
+            "title": "Bạn sẽ làm được gì sau khóa học?",
+            "slug": "ban-se-lam-duoc-gi-sau-khoa-hoc",
+            "image": "https://i.ytimg.com/vi/R6plN3FvzFY/maxresdefault.jpg",
+            "video": "R6plN3FvzFY",
+            "duration": 195,
+            "yt_view_count": 697322,
+            "yt_comment_count": 125,
+            "yt_like_count": 4269,
+            "image_url": "https://i.ytimg.com/vi/R6plN3FvzFY/maxresdefault.jpg",
+            "video_url": null
+            },
+            {
+            "id": 533,
+            "title": "Làm sao để có thu nhập cao và đi xa hơn trong ngành IT?",
+            "slug": "lam-sao-de-co-thu-nhap-cao-va-di-xa-hon-trong-nganh-it",
+            "image": "https://i.ytimg.com/vi/oF7isq9IjZM/maxresdefault.jpg",
+            "video": "oF7isq9IjZM",
+            "duration": 1540,
+            "yt_view_count": 76881,
+            "yt_comment_count": 236,
+            "yt_like_count": 3296,
+            "image_url": "https://i.ytimg.com/vi/oF7isq9IjZM/maxresdefault.jpg",
+            "video_url": null
+            }
+        ]
+
+        function PostItem({data}) {
             return (
                 <div className = "post-item">
-                    <h1>{prop.title}</h1>
-                    <img 
-                        src={prop.image} 
-                        alt={prop.title}
-                    />
-                    
+                    <h1>{data.title}</h1>
+                    <img src={data.image} />
                 </div>
             )
         }
@@ -30,15 +95,12 @@
         function App() {
             return (
                 <div id = "wrapper">
-                    <PostItem        
-                        title= "Sinh viên IT đi thực tập tại doanh nghiệp cần biết những gì?"
-                        image= "https://i.ytimg.com/vi/YH-E4Y3EaT4/maxresdefault.jpg"
-                    />
-
-                    <PostItem        
-                        title= "Phương pháp học lập trình của Admin F8?"
-                        image= "https://i.ytimg.com/vi/DpvYHLUiZpc/maxresdefault.jpg"
-                    />
+                    {data.map(data => (
+                        <PostItem 
+                            key = {data.id}
+                            data = {data}
+                        />
+                    ))}
                 </div>
             )
         }
